@@ -10,10 +10,10 @@ CHANNELS = {
     'netninja': 'UCW5YeuERMmlnqo4oq8vwUpg',
     'krishnaik': 'UCNU_lfiiWBdtULKOw6X0Dig',
     'jeffheaton': 'UCR1-GEpyOPzT2AO4D_eifdw',
-    'firstprinciples': 'UCf4EX7hWDUl6Bdc5Kj0F6Xg',
+    'firstprinciples': 'UCf0WB91t8Ky6AuYcQV0CcLw',
     '3blue1brown': 'UCYO_jab_esuFRV4b17AJtAw',
     'techworldnana': 'UCdngmbVKX1Tgre699-XLlUA',
-    'yousuckatprogramming': 'UC58qcBOVHTy7-RcXN4kKy4A',
+    'yousuckatprogramming': 'UCMN0a7GHQnC6H74SmCGSmdw',
     'theconstructsim': 'UCt6Lag-vv25fTX3e11mVY1Q'
 }
 
