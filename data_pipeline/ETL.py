@@ -33,7 +33,7 @@ def getVideoRecords(response: requests.models.Response) -> list:
 
     return video_record_list
 
-def getChannelVideos(channel_name: str):
+def getChannelVideos(channel_name: str) -> pl.DataFrame:
     """Fetches all videos from a specific YouTube channel with descriptions."""
     api_key = os.getenv('YT_API_KEY')
     channel_id = CHANNELS[channel_name]
@@ -45,7 +45,7 @@ def getChannelVideos(channel_name: str):
     )
     if playlist_response.status_code != 200:
         print(f"Channel API Error for {channel_name}: {playlist_response.text}")
-        return
+        return None
 
     playlist_id = json.loads(playlist_response.text)['items'][0]['contentDetails']['relatedPlaylists']['uploads']
     print(f"Processing {channel_name} - Playlist ID: {playlist_id}")
@@ -77,24 +77,16 @@ def getChannelVideos(channel_name: str):
             break
 
     df = pl.DataFrame(video_record_list)
-    df.write_parquet(f'app/data/{channel_name}-videos.parquet')
-    print(f"✅ Saved {len(video_record_list)} videos for {channel_name}")
+    print(f"✅ Processed {len(video_record_list)} videos for {channel_name}")
+    return df
 
 def setDatatypes(df: pl.DataFrame) -> pl.DataFrame:
     """Sets proper data types for DataFrame columns."""
     df = df.with_columns(pl.col('datetime').cast(pl.Datetime))
     return df
 
-def transformChannelData(channel_name: str):
-    """Preprocesses and cleans the video data for a specific channel."""
-    df = pl.read_parquet(f'app/data/{channel_name}-videos.parquet')
-    df = setDatatypes(df)
-    df.write_parquet(f'app/data/{channel_name}-videos.parquet')
-
-def createChannelEmbeddings(channel_name: str):
+def createChannelEmbeddings(channel_name: str, df: pl.DataFrame):
     """Generates embeddings for video titles and descriptions for a specific channel."""
-    df = pl.read_parquet(f'app/data/{channel_name}-videos.parquet')
-    
     # Filter out videos without descriptions
     df = df.filter(pl.col("description") != "n/a")
     
@@ -114,21 +106,22 @@ def createChannelEmbeddings(channel_name: str):
         
         df = df.hstack(df_embeddings)
 
+    os.makedirs('app/data', exist_ok=True)
     df.write_parquet(f'app/data/{channel_name}-index.parquet')
     print(f"✅ Created embeddings for {channel_name}: {len(df)} videos")
 
 def processAllChannels():
     """Process all configured channels."""
-    os.makedirs('app/data', exist_ok=True)
-    
     for channel_name in CHANNELS.keys():
         print(f"\nProcessing channel: {channel_name}")
         print("=" * 50)
         
         try:
-            getChannelVideos(channel_name)
-            transformChannelData(channel_name)
-            createChannelEmbeddings(channel_name)
+            # Get videos and process them without saving intermediate files
+            df = getChannelVideos(channel_name)
+            if df is not None:
+                df = setDatatypes(df)
+                createChannelEmbeddings(channel_name, df)
         except Exception as e:
             print(f"❌ Error processing {channel_name}: {str(e)}")
             continue
