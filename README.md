@@ -2,23 +2,23 @@ Here’s a clean and professional `README.md` adapted to your new project, refle
 
 ---
 
-# 🎯 End-to-End Semantic Search Engine for Educational YouTube Content
+# End-to-End Semantic Search Engine for Educational YouTube Content
 
 Semantic search engine to explore multiple educational YouTube channels using sentence embeddings and vector similarity. Supports natural language queries across a curated set of tech and programming-focused channels.
 
 ---
 
-## 📌 Features
+##  Features
 
-* 🔍 **Semantic Search** over content from multiple educational YouTube channels.
-* ⚙️ **ETL Pipeline** for automated fetching, processing, and embedding of video metadata.
-* 🚀 **FastAPI Backend**, containerized with Docker and deployable to **Google Cloud Run**.
-* 🌐 **Gradio UI** integration possible (via Hugging Face Spaces or local).
-* ☁️ **CI/CD** with GitHub Actions and Google Cloud Build for automatic updates.
+*  **Semantic Search** over content from multiple educational YouTube channels.
+*  **ETL Pipeline** for automated fetching, processing, and embedding of video metadata.
+*  **FastAPI Backend**, containerized with Docker and deployable to **Google Cloud Run**.
+*  **Gradio UI** integration possible (via Hugging Face Spaces or local).
+*  **CI/CD** with GitHub Actions and Google Cloud Build for automatic updates.
 
 ---
 
-## 📚 Supported Channels
+## Supported Channels
 
 Currently indexed YouTube channels:
 
@@ -36,13 +36,13 @@ Each channel has its own searchable index.
 
 ---
 
-## 🏗️ System Architecture
+## 🏗System Architecture
 
-![System Architecture](https://github.com/AzzedineNed/E2E-Semantic-Search-Engine-for-Educational-YouTube-Content/blob/main/end-to-end-semantic-search-for-freecodecamp-videos.png)
+![System Architecture](https://github.com/AzzedineNed/E2E-Semantic-Search-Engine-for-Educational-YouTube-Content/blob/master/end-to-end-semantic-search-for-freecodecamp-videos.png)
 
 ---
 
-## 🧠 Semantic Search Logic
+## Semantic Search Logic
 
 Uses the [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) model from `sentence-transformers` to embed video metadata and search queries.
 
@@ -57,7 +57,7 @@ curl -X POST "http://localhost:8080/search/netninja?query=routes%20basics"
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 E2E-Semantic-Search-Engine-for-Educational-YouTube-Content
@@ -81,7 +81,7 @@ E2E-Semantic-Search-Engine-for-Educational-YouTube-Content
 
 ---
 
-## 🔄 Data Pipeline
+##  Data Pipeline
 
 Automated pipeline using GitHub Actions:
 
@@ -95,7 +95,7 @@ Automated pipeline using GitHub Actions:
 
 ---
 
-## 🔐 Secrets & Configuration
+##  Secrets & Configuration
 
 To enable CI/CD and pipeline execution, set the following GitHub repository secrets:
 
@@ -108,7 +108,7 @@ To enable CI/CD and pipeline execution, set the following GitHub repository secr
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 * **App:** FastAPI application running on port `8080`.
 * **Containerized:** With Docker.
@@ -117,7 +117,7 @@ To enable CI/CD and pipeline execution, set the following GitHub repository secr
 
 ---
 
-## 🐳 Docker
+##  Docker
 
 ### Build the container
 
