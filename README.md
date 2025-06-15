@@ -44,13 +44,6 @@ Uses the [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-Min
 
 * Comparison is done via **Manhattan distance** (L1 norm).
 * Embedding indexes are stored in `.parquet` files inside `app/data/`.
-
-Example:
-
-```bash
-curl -X POST "http://localhost:8080/search/netninja?query=routes%20basics"
-```
-
 ---
 
 ##  Project Structure
@@ -159,8 +152,6 @@ python Data_Pipeline.py
 ---
 
 ## 🔍 Test the API
-
-Example POST request:
 
 ```bash
 curl "http://localhost:8080/search/netninja?query=routes%20basics"
