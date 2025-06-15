@@ -1,7 +1,3 @@
-Here’s a clean and professional `README.md` adapted to your new project, reflecting the expanded multi-channel capability:
-
----
-
 # End-to-End Semantic Search Engine for Educational YouTube Content
 
 Semantic search engine to explore multiple educational YouTube channels using sentence embeddings and vector similarity. Supports natural language queries across a curated set of tech and programming-focused channels.
