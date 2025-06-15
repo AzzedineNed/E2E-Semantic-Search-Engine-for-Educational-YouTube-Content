@@ -36,7 +36,7 @@ Each channel has its own searchable index.
 
 ---
 
-## 🏗System Architecture
+## System Architecture
 
 ![System Architecture](https://github.com/AzzedineNed/E2E-Semantic-Search-Engine-for-Educational-YouTube-Content/blob/master/end-to-end-semantic-search-for-freecodecamp-videos.png)
 
@@ -61,22 +61,33 @@ curl -X POST "http://localhost:8080/search/netninja?query=routes%20basics"
 
 ```
 E2E-Semantic-Search-Engine-for-Educational-YouTube-Content
-├── app
-│   ├── data/                        # Parquet indexes for each channel
-│   ├── __init__.py
-│   ├── main.py                      # FastAPI entrypoint
-│   └── search_function.py           # Search logic
-├── data_pipeline
-│   ├── Data_Pipeline.py             # Main pipeline script
-│   ├── ETL.py                       # ETL logic (fetch, clean, embed)
-│   └── requirements.txt
-├── .github/
-│   └── workflows/
-│       └── data-pipeline.yml        # Scheduled GitHub Actions workflow
-├── Dockerfile
-├── README.md
-├── requirements.txt
-└── .gitignore
+├──app
+│   ├──data
+│   │   ├──3blue1brown-index.parquet
+│   │   ├──firstprinciples-index.parquet
+│   │   ├──freecodecamp-index.parquet
+│   │   ├──jeffheaton-index.parquet
+│   │   ├──krishnaik-index.parquet
+│   │   ├──netninja-index.parquet
+│   │   ├──README.md
+│   │   ├──techworldnana-index.parquet
+│   │   ├──theconstructsim-index.parquet
+│   │   └──yousuckatprogramming-index.parquet
+│   ├──__init__.py
+│   ├──main.py
+│   └──search_function.py
+├──data_pipeline
+│   ├──Data_Pipeline.py
+│   ├──ETL.py
+│   └──requirements.txt
+├──.github
+│   └──workflows
+│   │   └──data-pipeline.yml
+├──Dockerfile
+├──end-to-end-semantic-search-for-freecodecamp-videos.png
+├──README.md
+├──requirements.txt
+└──.gitignore
 ```
 
 ---
