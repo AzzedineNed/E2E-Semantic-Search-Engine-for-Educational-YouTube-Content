@@ -85,11 +85,11 @@ E2E-Semantic-Search-Engine-for-Educational-YouTube-Content
 
 Automated pipeline using GitHub Actions:
 
-* 🕓 Scheduled to run **every Saturday at 4:00 AM** or manually.
-* 🧬 Fetches video metadata using **YouTube Data API v3**.
-* 🧼 Cleans and transforms video titles, descriptions, and transcripts.
-* 🤖 Generates sentence embeddings using `sentence-transformers`.
-* 💾 Saves `.parquet` indexes for each channel in `app/data/`.
+* Scheduled to run **every Saturday at 4:00 AM** or manually.
+* Fetches video metadata using **YouTube Data API v3**.
+* Cleans and transforms video titles, descriptions, and transcripts.
+* Generates sentence embeddings using `sentence-transformers`.
+* Saves `.parquet` indexes for each channel in `app/data/`.
 
 > Only the `app/` directory is included in the Docker image.
 
